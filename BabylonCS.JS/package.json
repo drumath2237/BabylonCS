@@ -1,0 +1,42 @@
+{
+  "name": "babyloncs-js",
+  "private": false,
+  "version": "0.1.0",
+  "description": "BabylonCs.JS Library",
+  "author": "drumath2237",
+  "homepage": "https://github.com/drumath2237/wasm-jsinterp-sandbox",
+  "license": "Apache-2.0",
+  "keywords": [
+    "npm",
+    "typescript"
+  ],
+  "packageManager": "pnpm@8.12.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drumath2237/wasm-jsinterp-sandbox"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.js",
+    "require": "./dist/index.umd.cjs"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "prepare": "pnpm build"
+  },
+  "devDependencies": {
+    "@babylonjs/core": "^6.38.1",
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vite-plugin-dts": "^3.7.0"
+  }
+}

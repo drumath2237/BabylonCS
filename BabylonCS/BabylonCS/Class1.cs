@@ -1,6 +1,9 @@
-﻿namespace BabylonCS;
+﻿using System.Runtime.InteropServices.JavaScript;
 
-public class Class1
+namespace BabylonCS;
+
+public static partial class Class1
 {
-
+    [JSImport("class1.hello", "class")]
+    public static partial void Hello();
 }

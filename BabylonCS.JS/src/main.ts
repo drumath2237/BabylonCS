@@ -4,9 +4,9 @@ import {
   createEngine,
   createScene,
   engineRunRenderLoop,
+  engineSetupResize,
   getCanvas,
   sceneCreateDefaultCameraOrLight,
-  sceneCreateDefaultEnvironment,
   sceneRender,
 } from "../lib";
 
@@ -20,10 +20,10 @@ const main = () => {
   const scene = createScene(engine);
 
   sceneCreateDefaultCameraOrLight(scene, true, true, true);
-  // sceneCreateDefaultEnvironment(scene);
 
   createBox("box", 0.1);
 
+  engineSetupResize(engine);
   engineRunRenderLoop(engine, () => sceneRender(scene));
 };
 

@@ -6,8 +6,16 @@ import { cp, rm } from "fs/promises";
 const copyBuildsAfterBuildPlugin: PluginOption = {
   name: "copyBuildsAfterBuildPlugin",
   closeBundle: async (): Promise<void> => {
-    await rm("../wwwroot/BabylonCs", { force: true, recursive: true });
-    await cp("./dist", "../BabylonCS/Playground/wwwroot/BabylonCs", { recursive: true });
+    await rm("../BabylonCS/Playground/wwwroot/BabylonCs", {
+      force: true,
+      recursive: true,
+    });
+
+    await cp("./dist", "../BabylonCS/Playground/wwwroot/BabylonCs", {
+      recursive: true,
+    });
+
+    console.log("package copied!");
   },
 };
 

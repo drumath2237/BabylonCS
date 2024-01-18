@@ -1,16 +1,30 @@
 import "./style.css";
-import { changePersonName, getPerson, printPerson } from "../lib";
+import {
+  createBox,
+  createEngine,
+  createScene,
+  engineRunRenderLoop,
+  engineSetupResize,
+  getCanvas,
+  sceneCreateDefaultCameraOrLight,
+  sceneRender,
+} from "../lib";
 
 const main = () => {
-  const paragraph = document.querySelector<HTMLParagraphElement>("p#msg");
-  if (!paragraph) {
+  const renderCanvas = getCanvas("renderCanvas");
+  if (!renderCanvas) {
     return;
   }
 
-  const person = getPerson("Alice");
-  changePersonName(person, "Bob");
-  paragraph.textContent = printPerson(person);
-  console.log(person);
+  const engine = createEngine(renderCanvas, true);
+  const scene = createScene(engine);
+
+  sceneCreateDefaultCameraOrLight(scene, true, true, true);
+
+  createBox("box", 0.1);
+
+  engineSetupResize(engine);
+  engineRunRenderLoop(engine, () => sceneRender(scene));
 };
 
 main();

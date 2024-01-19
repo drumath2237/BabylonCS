@@ -1,19 +1,10 @@
 using System;
-using System.Runtime.InteropServices.JavaScript;
 using BabylonCS;
 
-Console.WriteLine("Hello, Browser!");
-
-public partial class MyClass
+if (!Document.TryGetRenderCanvas("renderCanvas", out var renderCanvas))
 {
-    [JSExport]
-    internal static string Greeting()
-    {
-        var text = $"Hello, World! Greetings from {GetHRef()}";
-        Console.WriteLine(text);
-        return text;
-    }
-
-    [JSImport("window.location.href", "main.js")]
-    internal static partial string GetHRef();
+    Console.WriteLine("cannot found canvas");
+    return;
 }
+
+Console.WriteLine($"canvas: {renderCanvas}");

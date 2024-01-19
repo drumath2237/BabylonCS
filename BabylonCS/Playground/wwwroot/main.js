@@ -25,7 +25,7 @@ const main = () => {
     return;
   }
 
-  const engine = createEngine(renderCanvas, false);
+  const engine = createEngine(renderCanvas, true);
   const scene = createScene(engine);
 
   sceneCreateDefaultCameraOrLight(scene, true, true, true);
@@ -35,5 +35,7 @@ const main = () => {
   engineSetupResize(engine);
   engineRunRenderLoop(engine, () => sceneRender(scene));
 };
+
+main();
 
 await dotnet.run();

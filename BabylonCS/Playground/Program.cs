@@ -7,4 +7,10 @@ if (!Document.TryGetRenderCanvas("renderCanvas", out var renderCanvas))
     return;
 }
 
-Console.WriteLine($"canvas: {renderCanvas}");
+var engine = new Engine(renderCanvas, true);
+var scene = new Scene(engine);
+
+scene.CreateDefaultCameraOrLight(true, true, true);
+
+engine.SetupResize();
+engine.RunRenderLoop(() => scene.Render());

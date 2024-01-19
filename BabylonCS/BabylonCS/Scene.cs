@@ -15,11 +15,11 @@ public class Scene(Engine engine) : IScene
 
     public void CreateDefaultCameraOrLight(bool createArcRotateCamera, bool replace, bool attachCameraControl)
     {
-        throw new NotImplementedException();
+        SceneImpl.SceneCreateDefaultCameraOrLight(SceneObj, createArcRotateCamera, replace, attachCameraControl);
     }
 
     public void Render()
     {
-        throw new NotImplementedException();
+        SceneImpl.SceneRender(SceneObj);
     }
 }

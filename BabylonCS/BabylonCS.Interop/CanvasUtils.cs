@@ -6,11 +6,11 @@ namespace BabylonCS.Interop;
 public static partial class CanvasUtilsImpl
 {
     [JSImport("canvas.getCanvas", ModuleName)]
-    public static partial JSObject GetCanvas(string id);
+    public static partial JSObject? GetCanvas(string id);
 
     [JSImport("canvas.getCanvasWidth", ModuleName)]
-    public static partial JSObject GetCanvasWidth(JSObject canvas);
+    public static partial int GetCanvasWidth(JSObject canvas);
 
     [JSImport("canvas.getCanvasHeight", ModuleName)]
-    public static partial JSObject GetCanvasHeight(JSObject canvas);
+    public static partial int GetCanvasHeight(JSObject canvas);
 }

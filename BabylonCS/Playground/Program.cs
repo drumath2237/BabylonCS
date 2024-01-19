@@ -1,5 +1,10 @@
 using System;
-using System.Runtime.InteropServices.JavaScript;
 using BabylonCS;
 
-Console.WriteLine("Hello, Browser!");
+if (!Document.TryGetRenderCanvas("renderCanvas", out var renderCanvas))
+{
+    Console.WriteLine("cannot found canvas");
+    return;
+}
+
+Console.WriteLine($"canvas: {renderCanvas}");

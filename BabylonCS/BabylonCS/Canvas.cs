@@ -27,7 +27,7 @@ public class RenderCanvas : IRenderCanvas
 
 public static class Document
 {
-    public static bool TryGetRenderCanvas(string elmId, out IRenderCanvas canvas)
+    public static bool TryGetRenderCanvas(string elmId, out RenderCanvas canvas)
     {
         var renderCanvas = CanvasUtilsImpl.GetCanvas(elmId);
         if (renderCanvas == null)

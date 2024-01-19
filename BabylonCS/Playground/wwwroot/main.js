@@ -3,39 +3,13 @@
 
 import { dotnet } from "./_framework/dotnet.js";
 
-import {
-  createBox,
-  createEngine,
-  createScene,
-  engineRunRenderLoop,
-  engineSetupResize,
-  getCanvas,
-  sceneCreateDefaultCameraOrLight,
-  sceneRender,
-} from "./BabylonCs/index.js";
+import { setupBabylonCs } from "./BabylonCs/index.js";
 
-const { setModuleImports, getAssemblyExports, getConfig } = await dotnet
+const { setModuleImports } = await dotnet
   .withDiagnosticTracing(false)
   .withApplicationArgumentsFromQuery()
   .create();
 
-const main = () => {
-  const renderCanvas = getCanvas("renderCanvas");
-  if (!renderCanvas) {
-    return;
-  }
-
-  const engine = createEngine(renderCanvas, true);
-  const scene = createScene(engine);
-
-  sceneCreateDefaultCameraOrLight(scene, true, true, true);
-
-  createBox("box", 0.1);
-
-  engineSetupResize(engine);
-  engineRunRenderLoop(engine, () => sceneRender(scene));
-};
-
-main();
+setupBabylonCs(setModuleImports);
 
 await dotnet.run();

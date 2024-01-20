@@ -10,6 +10,6 @@ const importsFun = {
   mesh: meshModule,
 };
 
-type SetMpduleImportsType = (module: string, imports: any) => void;
-export const setupBabylonCs = (fun: SetMpduleImportsType) =>
+type SetModuleImportsType = (module: string, imports: any) => void;
+export const setupBabylonCs = (fun: SetModuleImportsType) =>
   fun("babylon.cs", importsFun);

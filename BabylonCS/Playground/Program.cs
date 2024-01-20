@@ -12,7 +12,8 @@ var scene = new Scene(engine);
 
 scene.CreateDefaultCameraOrLight(true, true, true);
 
-MeshBuilder.CreateBox("box", 0.2f);
+MeshBuilder.CreateBox("box", 0.15f);
+MeshBuilder.CreateSphere("sphere", 256, 0.2f);
 
 engine.SetupResize();
 engine.RunRenderLoop(() => scene.Render());

@@ -6,12 +6,12 @@ export const sceneCreateDefaultCameraOrLight = (
   scene: Scene,
   createArcRotateCamera: boolean,
   replace: boolean,
-  attatchCameraControl: boolean
+  attachCameraControl: boolean
 ) =>
   scene.createDefaultCameraOrLight(
     createArcRotateCamera,
     replace,
-    attatchCameraControl
+    attachCameraControl
   );
 
 export const sceneCreateDefaultEnvironment = (scene: Scene) =>
